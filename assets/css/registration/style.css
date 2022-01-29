@@ -1,0 +1,102 @@
+.registrasi {
+    width: 100%;
+    min-height: 100vh;
+    background-image: linear-gradient(45deg, pink, rgb(128, 255, 238));
+    position: relative;
+}
+
+.registrasi .box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 30%;
+    height: 55vh;
+    padding: 5px;
+    border-radius: 2px;
+}
+
+.registrasi .box label {
+    display: block;
+    font-size: 18px;
+    margin: 6px 0;
+}
+
+.registrasi .box input,
+.registrasi .box select {
+    width: 100%;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid black;
+    outline: none;
+    height: 25px;
+    font-size: 20px;
+    padding: 6px;
+}
+
+.registrasi .box select {
+    padding: 0;
+}
+
+.registrasi .box button {
+    width: 50%;
+    display: block;
+    margin: 12px auto;
+    height: 50px;
+    cursor: pointer;
+    font-size: 22px;
+    outline: none;
+    border: 0;
+    position: relative;
+    background-image: linear-gradient(to right, pink, rgb(128, 255, 238));
+    overflow: hidden;
+    border-radius: 5px;
+}
+
+.registrasi .box button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, transparent, pink);
+}
+
+.registrasi .box button:hover::before {
+    animation: myAnimate 1.5s linear;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes myAnimate {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+.registrasi .box button span {
+    display: inline-block;
+    transform: translate(15px, 0);
+    transition: all 0.5s ease;
+}
+
+.registrasi .box button i {
+    transform: translate(30px, 3px);
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.registrasi .box button:hover span {
+    transform: translate(0, 0);
+}
+
+.registrasi .box button:hover i {
+    transform: translate(0, 3px);
+    opacity: 1;
+}

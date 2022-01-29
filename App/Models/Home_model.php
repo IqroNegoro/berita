@@ -2,6 +2,7 @@
 
 class Home_model extends Database {
     private $table = "berita";
+    private $users = "users";
     private $db;
 
     public function __construct() {
@@ -12,19 +13,20 @@ class Home_model extends Database {
         $myStr = $this->db->quotes($str);
         $myStr = trim($myStr, "\'");
         $myStr = preg_replace("/\\\/", "", $myStr);
-        return $myStr;
+        return $str;
     }
 
     public function parsingURL($url) {
         $str = strtolower($url);
-        $str = filter_var($str, FILTER_SANITIZE_STRING);
-        $str = preg_replace('/[!@%&]/', "", "$str");
-        $str = preg_replace('/\s/', "-", "$str");
+        $str = preg_replace("/[!@#\$%\^&\*\(\)-_=\+\\\;\'\":\.\/\,\>\<\}\{]/", "", $str);
+        $str = preg_replace('/\s+/', "-", $str);
+        $str = preg_replace('/-+/', "-", $str);
+        $str = rtrim($str, "-");
         return $str;
     }
     
     public function reparse($url) {
-        $str = preg_replace('/-/', " ", "$url");
+        $str = preg_replace("/-/", " ", $url);
         return $str;
     }
 
@@ -34,13 +36,19 @@ class Home_model extends Database {
     }
 
     public function getPopular() {
-        $this->db->query("SELECT * FROM $this->table ORDER BY view ");
+        $this->db->query("SELECT * FROM $this->table ORDER BY view DESC");
         return $this->db->result();
     }
 
     public function getNew($judul) {
-        $judul = $this->reparse($judul);
-        $this->db->query("SELECT * FROM $this->table WHERE judul LIKE '%$judul%'");
+        $title = $this->reparse($judul);
+        $this->db->query("UPDATE $this->table SET view = view + 1 WHERE judul LIKE '%$title%'");
+        $this->db->execute();
+        $this->db->query("SELECT judul, rilis, img, isi, view, kreator, profile, nama FROM $this->table LEFT JOIN $this->users ON $this->table.kreator=$this->users.nama WHERE judul LIKE '%%'");
         return $this->db->single();
+    }
+
+    public function getProfile() {
+        
     }
 }

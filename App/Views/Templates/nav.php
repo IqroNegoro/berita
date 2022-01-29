@@ -5,8 +5,8 @@
         </div>
     </div>
     <div class="col-2">
-        <a href="">
-            <img src="assets/img/kurumi.jpg" alt="">
+        <a href="<?= BASEURL ?>registrasi/">
+            <img src="<?= BASEURL ?>assets/img/login.png" alt="?">
         </a>
     </div>
 </div>
@@ -27,6 +27,7 @@
                 <li>Artis</li>
                 <li>Fashion</li>
                 <li>Kuliner</li>
+                <li>Anime</li>
             </ul>
         </div>
     </div>

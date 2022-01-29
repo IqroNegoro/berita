@@ -65,6 +65,7 @@ class Database {
     }
 
     public function affected() {
+        $this->execute();
         return $this->stmt->rowCount();
     }
 
