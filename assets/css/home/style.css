@@ -1,5 +1,12 @@
+.berita {
+    width: 100%;
+    border: 1px solid;
+}
+
 .berita .col-1, .berita .col-2 {
     width: 100%;
+    height: auto;
+    border: 1px solid;
 }
 
 .berita .items {
@@ -17,4 +24,8 @@
 
 .items img {
     width: 80%;
+}
+
+.items .item {
+    text-overflow: ellipsis;
 }

@@ -4,7 +4,7 @@ class App {
     protected $controller = "home";
     protected $method = "index";
     protected $params = [];
-    //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
+    
     public function __construct() {
         $url = $this->parseUrl();
 

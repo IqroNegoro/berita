@@ -50,6 +50,10 @@ class Database {
         $this->stmt->execute();
     }    
 
+    public function quotes($str) {
+        return $this->dbh->quote($str);
+    }
+
     public function result() {
         $this->execute();
         return $this->stmt->fetchAll(PDO::FETCH_ASSOC);

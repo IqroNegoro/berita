@@ -1,0 +1,8 @@
+.news {
+    width: 70%;
+    border: 1px solid;
+    margin: auto;
+    display: block;
+    text-align: center;
+    padding: 12px;
+}
