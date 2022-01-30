@@ -22,15 +22,19 @@ class Home extends Controller {
         $this->view("home/home", $data);
         $this->view("Templates/footer");
     }
-
+    
     public function news($judul) {
         $data["style"] = "assets/css/home/news.css";
         $data["detail"] = $this->model("Home_model")->getNew($judul);
         $data["test"] = $this->model("Home_model")->reparse($judul);
         $data["title"] = $data["detail"]["judul"];
         $data["detail"]["url"] = $this->model("Home_model")->parsingURL($data["detail"]["nama"]);
+        if (isset($_COOKIE["nama"])) {
+            $data["user"] = $this->model("User_model")->getUser($_COOKIE);
+            $data["user"]["url"] = $this->model("Home_model")->parsingURL($data["user"]["nama"]);
+        }
         $this->view("Templates/header", $data);
-        $this->view("Templates/nav");
+        $this->view("Templates/nav", $data);
         $this->view("home/news", $data);
         $this->view("Templates/footer");
     }

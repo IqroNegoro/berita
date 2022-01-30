@@ -1,10 +1,10 @@
-<?php session_start();
-
+<?php 
+if (isset($_COOKIE["nama"]) && $_SERVER["REQUEST_URI"] == "/berita/registrasi") {
+    header("Location: " . BASEURL . "user/" . $data["user"]);
+}
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <?php if (isset($data["kreator"])) : ?>
