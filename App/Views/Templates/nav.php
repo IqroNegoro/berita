@@ -1,3 +1,4 @@
+<?= var_dump($data) ?>
 <div class="nav">
     <div class="col-1">
         <div class="menu">
@@ -5,9 +6,9 @@
         </div>
     </div>
     <div class="col-2">
-        <?php if (isset($_SESSION["login"])) : ?>
-            <a href="<?= BASEURL ?>user/<?= $_SESSION["nama"] ?>">
-                <img src="<?= BASEURL ?>assets/img/" alt="?">
+        <?php if ($_COOKIE["pass"] === $data["user"]["pass"]) : ?>
+            <a href="<?= BASEURL ?>user/<?= $data["user"]["nama"] ?>">
+                <img src="<?= BASEURL ?>assets/img/<?= $data["user"]["img"] ?>" alt="?">
             </a>
         <?php else : ?>
             <a href="<?= BASEURL ?>registrasi/">

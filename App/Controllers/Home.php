@@ -13,6 +13,7 @@ class Home extends Controller {
             $data["news"][$i]["isi"] = $this->model("Home_model")->escape($data["news"][$i]["isi"]);
             $data["popular"][$i]["isi"] = $this->model("Home_model")->escape($data["popular"][$i]["isi"]);
         }
+        $data["user"] = $this->model("User_model")->getUser($_COOKIE["nama"]);
         $this->view("Templates/header", $data);
         $this->view("Templates/nav", $data);
         $this->view("home/home", $data);

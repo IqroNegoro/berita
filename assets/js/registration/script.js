@@ -8,6 +8,7 @@ async function postData(data) {
         method: "POST",
         body: data
     }).then(resp => resp.text()).then(resp => {
+        console.log(resp)
         loading.firstElementChild.style.width = "100%"
         window.location.replace("http://localhost/berita/user");
     }).catch(err => console.log(err));
