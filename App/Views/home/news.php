@@ -1,4 +1,3 @@
-<?= $data["test"] ?>
 <div class="news">
     <div class="img">
         <img src="<?= BASEURL ?>assets/img/<?= $data["detail"]["img"] ?>"></img>

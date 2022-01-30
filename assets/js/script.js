@@ -16,13 +16,11 @@ let item = document.querySelectorAll(".sidenav .berita ul li");
 
 item.forEach(val => {
     val.addEventListener("click", e => {
-        console.log(val.innerHTML);
-        console.log(category)
         for (let i = 0; i < category.length; i++) {
-            if (category[i].dataset.kategori.toLowerCase() !== val.innerHTML.toLowerCase() ) {
-                category[i].style.display = "none";
-            } else if (val.innerHTML.toLowerCase() === "semua") {
+            if (val.innerHTML.toLowerCase() == "semua") {
                 category[i].style.display = "block";
+            } else if (category[i].dataset.kategori.toLowerCase() !== val.innerHTML.toLowerCase()) {
+                category[i].style.display = "none";
             } else {
                 category[i].style.display = "block";
             }

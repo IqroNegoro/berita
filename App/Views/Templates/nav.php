@@ -5,9 +5,15 @@
         </div>
     </div>
     <div class="col-2">
-        <a href="<?= BASEURL ?>registrasi/">
-            <img src="<?= BASEURL ?>assets/img/login.png" alt="?">
-        </a>
+        <?php if (isset($_SESSION["login"])) : ?>
+            <a href="<?= BASEURL ?>user/<?= $_SESSION["nama"] ?>">
+                <img src="<?= BASEURL ?>assets/img/" alt="?">
+            </a>
+        <?php else : ?>
+            <a href="<?= BASEURL ?>registrasi/">
+                <img src="<?= BASEURL ?>assets/img/login.png" alt="?">
+            </a>
+        <?php endif ?>
     </div>
 </div>
 <div class="sidenav">

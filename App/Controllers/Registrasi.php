@@ -12,6 +12,7 @@ class Registrasi extends Controller {
     
     public function create() {
         $data["user"] = $this->model("Registrasi_model")->registrasiUser($_POST);
+        $this->view("registration/header", $data);
         $this->view("registration/create", $data);
     }
 }

@@ -19,11 +19,13 @@
         </form>
     </div>
 </div>
+<div class="check">
+    <div class="progress"></div>
+</div>
 <div class="alert">
     <div class="title">
         Alert!
     </div>
     <div class="text">
-        
     </div>
 </div>
