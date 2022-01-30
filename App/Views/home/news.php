@@ -11,7 +11,7 @@
     </div>
     <div class="kreator">
         <div class="profile">
-            <a href="<?= BASEURL ?>user/<?= $data["detail"]["nama"] ?>" target="_blank">
+            <a href="<?= BASEURL ?>user/<?= $data["detail"]["url"] ?>" target="_blank">
                 <img src="<?= BASEURL ?>assets/img/<?= $data["detail"]["profile"] ?>" alt="Gambar Profile">
                 <p><?= $data["detail"]["nama"] ?></p>
                 <br>

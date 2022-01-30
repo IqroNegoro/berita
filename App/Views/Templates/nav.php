@@ -1,4 +1,3 @@
-<?= var_dump($data) ?>
 <div class="nav">
     <div class="col-1">
         <div class="menu">
@@ -6,10 +5,12 @@
         </div>
     </div>
     <div class="col-2">
+        <?php if (isset($_COOKIE["pass"]) && isset($data["user"]["pass"])) : ?>
         <?php if ($_COOKIE["pass"] === $data["user"]["pass"]) : ?>
-            <a href="<?= BASEURL ?>user/<?= $data["user"]["nama"] ?>">
-                <img src="<?= BASEURL ?>assets/img/<?= $data["user"]["img"] ?>" alt="?">
+            <a href="<?= BASEURL ?>user/<?= $data["user"]["url"] ?>">
+                <img src="<?= BASEURL ?>assets/img/<?= $data["user"]["profile"] ?>" alt="?">
             </a>
+        <?php endif; ?>
         <?php else : ?>
             <a href="<?= BASEURL ?>registrasi/">
                 <img src="<?= BASEURL ?>assets/img/login.png" alt="?">

@@ -13,7 +13,10 @@ class Home extends Controller {
             $data["news"][$i]["isi"] = $this->model("Home_model")->escape($data["news"][$i]["isi"]);
             $data["popular"][$i]["isi"] = $this->model("Home_model")->escape($data["popular"][$i]["isi"]);
         }
-        $data["user"] = $this->model("User_model")->getUser($_COOKIE["nama"]);
+        if (isset($_COOKIE["nama"])) {
+            $data["user"] = $this->model("User_model")->getUser($_COOKIE);
+            $data["user"]["url"] = $this->model("Home_model")->parsingURL($data["user"]["nama"]);
+        }
         $this->view("Templates/header", $data);
         $this->view("Templates/nav", $data);
         $this->view("home/home", $data);
@@ -25,6 +28,7 @@ class Home extends Controller {
         $data["detail"] = $this->model("Home_model")->getNew($judul);
         $data["test"] = $this->model("Home_model")->reparse($judul);
         $data["title"] = $data["detail"]["judul"];
+        $data["detail"]["url"] = $this->model("Home_model")->parsingURL($data["detail"]["nama"]);
         $this->view("Templates/header", $data);
         $this->view("Templates/nav");
         $this->view("home/news", $data);
