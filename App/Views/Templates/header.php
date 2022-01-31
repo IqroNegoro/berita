@@ -1,6 +1,6 @@
 <?php 
-if (isset($_COOKIE["nama"]) && $_SERVER["REQUEST_URI"] == "/berita/registrasi") {
-    header("Location: " . BASEURL . "user/" . $data["user"]);
+if (isset($data["cookie"]) && $data["cookie"] === true && $_SERVER["REQUEST_URI"] == "/berita/registrasi" || $_SERVER["REQUEST_URI"] == "/berita/login") {
+   header("Location: " . BASEURL . "user/" . $data["user"]);
 }
 ?>
 <!DOCTYPE html>

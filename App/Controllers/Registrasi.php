@@ -9,8 +9,10 @@ class Registrasi extends Controller
         $data["script"] = "assets/js/registration/script.js";
         if (isset($_COOKIE["nama"])) {
             $data["cookie"] = true;
-            $data["user"] = $this->model("User_model")->getUser($_COOKIE);
-            $data["user"] = $this->model("Home_model")->parsingURL($data["user"]["nama"]);
+            $nama["nama"] = $this->model("Home_model")->reparse($_COOKIE["nama"]);
+            $data["user"] = $this->model("User_model")->getUser($nama);
+            $data["user"]["url"] = $this->model("Home_model")->parsingURL($data["user"]["nama"]);
+
         }
         $this->view("Templates/header", $data);
         $this->view("registration/index", $data);

@@ -10,7 +10,9 @@ class User extends Controller {
             $data["title"] = $data["detail"][$i]["nama"];
             $data["detail"][$i]["url"] = $this->model("Home_model")->parsingURL($data["detail"][$i]["judul"]);
         }
+        $data["url"] = $user;
         $this->view("Templates/header", $data);
+        $this->view("user/nav", $data);
         $this->view("user/index", $data);
         $this->view("Templates/footer", $data);
     }

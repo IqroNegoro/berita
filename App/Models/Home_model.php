@@ -42,13 +42,11 @@ class Home_model extends Database {
 
     public function getNew($judul) {
         $title = $this->reparse($judul);
+        $title = substr($title, 0, 10);
         $this->db->query("UPDATE $this->table SET view = view + 1 WHERE judul LIKE '%$title%'");
         $this->db->execute();
         $this->db->query("SELECT judul, rilis, img, isi, view, kreator, profile, nama FROM $this->table LEFT JOIN $this->users ON $this->table.kreator=$this->users.nama WHERE judul LIKE '%%'");
         return $this->db->single();
     }
 
-    public function getProfile() {
-        
-    }
 }

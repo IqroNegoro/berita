@@ -18,5 +18,12 @@ class User_model extends Database {
         $this->db->query("SELECT * FROM users LEFT JOIN berita ON users.nama=berita.kreator WHERE nama LIKE '%$data%'");
         return $this->db->result();
     }
+
+    public function login($data) {
+        $pass = hash("sha256", $data["password"]);
+        $nama = $data["nama"];
+        $this->db->query("SELECT id, nama, pass FROM users WHERE pass = '$pass' AND nama = '$nama'");
+        return $this->db->single();
+    }
     
 }

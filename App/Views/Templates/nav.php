@@ -12,7 +12,7 @@
             </a>
         <?php endif; ?>
         <?php else : ?>
-            <a href="<?= BASEURL ?>registrasi/">
+            <a href="<?= BASEURL ?>login/">
                 <img src="<?= BASEURL ?>assets/img/login.png" alt="?">
             </a>
         <?php endif ?>

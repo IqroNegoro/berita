@@ -17,6 +17,11 @@
             </select>
             <button type="submit" id="submit"><span>Buat Akun</span> <i class="bx bx-log-in"></i></button>
         </form>
+        <a href="<?= BASEURL ?>login/">
+        <button>
+            Log In <div class="bx bx-log-in"></div>
+        </button>    
+    </a>
     </div>
 </div>
 <div class="check">
