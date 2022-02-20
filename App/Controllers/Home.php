@@ -29,7 +29,8 @@ class Home extends Controller {
         $data["title"] = $data["detail"]["judul"];
         $data["detail"]["url"] = $this->model("Home_model")->parsingURL($data["detail"]["nama"]);
         if (isset($_COOKIE["nama"])) {
-            $data["user"] = $this->model("User_model")->getUser($_COOKIE);
+            $cooki["nama"] = $this->model("Home_model")->reparse($_COOKIE["nama"]);
+            $data["user"] = $this->model("User_model")->getUser($cooki);
             $data["user"]["url"] = $this->model("Home_model")->parsingURL($data["user"]["nama"]);
         }
         $this->view("Templates/header", $data);
